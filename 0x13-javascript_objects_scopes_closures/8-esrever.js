@@ -1,10 +1,9 @@
 #!/usr/bin/node
+exports.esrever = function (list) {
+  const newList = [];
 
-module.exports.esrever = function (list) {
-  let newlist = [];
-  let c = 0;
-  for (let l = list.length - 1; l >= 0; l--, c++) {
-    newlist[c] = list[l];
+  for (let i = (list.length - 1); i >= 0; i--) {
+    newList.push(list[i]);
   }
-  return newlist;
+  return newList;
 };
