@@ -1,29 +1,10 @@
 #!/usr/bin/node
+let num = process.argv.slice(2);
+const numArgs = process.argv.length - 2;
 
-let second = parseInt(process.argv[3]);
-
-if (isNaN(second)) {
-  console.log('0');
-  process.exit();
+if (numArgs === 0 || numArgs === 1) {
+  console.log(0);
+} else {
+  num = num.sort(function (a, b) { return b - a; });
+  console.log(num[1]);
 }
-
-let first = parseInt(process.argv[2]);
-
-if (first < second) {
-  let temp = first;
-  first = second;
-  second = temp;
-}
-
-for (let i = 4; i < process.argv.length; i++) {
-  let next = parseInt(process.argv[i]);
-  if (next > second) {
-    if (next > first) {
-      second = first;
-      first = next;
-    } else {
-      second = next;
-    }
-  }
-}
-console.log(second);
